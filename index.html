@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <title>Сайт начинающего верстальщика</title>
-    <link rel="stylesheet" href={{ url_for('static', filename="style.css") }}>
+    <link rel="stylesheet" href= {{ url_for('static', filename="style.css") }}>
   </head>
   <body>
     <header>
@@ -17,21 +17,21 @@
       <nav class="blog-navigation">
         <h2>Записи в блоге</h2>
         <ul>
-          <li><a href="day-1.html">День первый. Как я забыл покормить кота</a></li>
-          <li><a href="day-2.html">День второй. Хочу быть верстальщиком</a></li>
-          <li><a href="day-3.html">День третий. Мой кот на меня обиделся</a></li>
-          <li><a href="day-4.html">День четвертый. Как я чуть не заболел</a></li>
-          <li><a href="day-5.html">День пятый. Отдыхаю</a></li>
-          <li><a href="day-6.html">День шестой. Как я ничего не понял</a></li>
-          <li><a href="day-7.html">День седьмой. Кекс выдал мне задание</a></li>
-          <li><a href="day-8.html">День восьмой. Очень серьёзный</a></li>
-          <li><a href="day-9.html">День девятый. Точнее ночь</a></li>
-          <li><a href="day-10.html">День десятый. Подведение итогов</a></li>
-          <li><a href="day-11.html">День одиннадцатый. Без фанатизма</a></li>
-          <li><a href="day-12.html">День двенадцатый. Все любят печенье</a></li>
-          <li><a href="day-13.html">День тринадцатый. Нашёл статью</a></li>
-          <li><a href="day-14.html">День четырнадцатый. Новый формат</a></li>
-          <li><a href="day-15.html">День пятнадцатый. Галерея селфи</a></li>
+          <li><a href= {{ url_for('day', num=1)}}>День первый. Как я забыл покормить кота</a></li>
+          <li><a href= {{ url_for('day', num=2)}}>День второй. Хочу быть верстальщиком</a></li>
+          <li><a href= {{ url_for('day', num=3)}}>День третий. Мой кот на меня обиделся</a></li>
+          <li><a href= {{ url_for('day', num=4)}}>День четвертый. Как я чуть не заболел</a></li>
+          <li><a href= {{ url_for('day', num=5)}}>День пятый. Отдыхаю</a></li>
+          <li><a href= {{ url_for('day', num=6)}}>День шестой. Как я ничего не понял</a></li>
+          <li><a href= {{ url_for('day', num=7)}}>День седьмой. Кекс выдал мне задание</a></li>
+          <li><a href= {{ url_for('day', num=8)}}>День восьмой. Очень серьёзный</a></li>
+          <li><a href= {{ url_for('day', num=9)}}>День девятый. Точнее ночь</a></li>
+          <li><a href= {{ url_for('day', num=10)}}>День десятый. Подведение итогов</a></li>
+          <li><a href= {{ url_for('day', num=11)}}>День одиннадцатый. Без фанатизма</a></li>
+          <li><a href= {{ url_for('day', num=12)}}>День двенадцатый. Все любят печенье</a></li>
+          <li><a href= {{ url_for('day', num=13)}}>День тринадцатый. Нашёл статью</a></li>
+          <li><a href= {{ url_for('day', num=14)}}>День четырнадцатый. Новый формат</a></li>
+          <li><a href= {{ url_for('day', num=15)}}>День пятнадцатый. Галерея селфи</a></li>
         </ul>
       </nav>
       <section>

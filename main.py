@@ -7,7 +7,18 @@ app = Flask(__name__)
 def hello():    # функция представления
      return f"""
     <a href={url_for('index')}>Site</a>
+    <a href={url_for('start')}>стартовая страница</a>
+    <a href={url_for('base')}>базовая страница</a>
 """
+
+@app.route('/start')
+def start():
+    return render_template('start.html') # отрисовывает шаблон
+
+@app.route('/base')
+def base():
+    return render_template('base.html') # отрисовывает шаблон
+
 
 @app.route('/index')
 def index():

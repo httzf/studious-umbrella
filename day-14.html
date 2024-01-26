@@ -1,18 +1,12 @@
-<!DOCTYPE html>
-<html lang="ru">
-  <head>
-    <meta charset="utf-8">
-    <title>Сайт начинающего верстальщика</title>
-    <link rel="stylesheet" href= {{ url_for('static', filename="style.css") }}>
-  </head>
-  <body>
-    <header>
-      <p class="page-title">Блог</p>
-      <nav class="blog-navigation">
-        <a href= {{ url_for('index') }}>На главную</a>
-      </nav>
-    </header>
-    <main>
+{% extends "base.html" %}
+
+{% block navigation %}
+<nav class="blog-navigation">
+  <a href={{ url_for('start') }}>На главную</a>
+</nav>
+{% endblock %}
+
+{% block content %}
       <article>
         <h1>День четырнадцатый. Новый формат</h1>
         <p>Вчера я узнал, какой формат изображения подходит для аватарки, и добавил её в свой блог. Мне понравилось. Красиво же. Решил сделать шпаргалку, чтобы не забыть, какие ещё форматы изображений существуют и для чего используются.</p>
@@ -29,9 +23,4 @@
       <aside class="partnership">
         Тут могла быть ваша реклама
       </aside>
-    </main>
-    <footer>
-      Подвал сайта
-    </footer>
-  </body>
-</html>
+{% endblock %}

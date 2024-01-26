@@ -9,18 +9,18 @@
     <header>
       <p>Блог</p>
       <nav class="blog-navigation">
-        <a href="day-15.html">Вернуться к записи</a>
+        <a href={{ url_for('day', num=15)}}>Вернуться к записи</a>
       </nav>
     </header>
     <main>
       <article>
         <figure>
-          <img src="files/keks-1.jpg" width="486" height="315" alt="Кексик">
+          <img src={{ url_for('static', filename="files/keks-1.jpg") }} width="486" height="315" alt="Кексик">
           <figcaption>Бдительный инструктор Кекс следит за порядком.</figcaption>
         </figure>
         <nav class="pagination">
           <a>&lt; Назад</a>
-          <a href="photo-2.html">Вперёд &gt;</a>
+          <a href={{ url_for('photo', num=2)}}>Вперёд &gt;</a>
         </nav>
       </article>
       <aside class="partnership">

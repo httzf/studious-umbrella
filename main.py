@@ -1,5 +1,4 @@
-from flask import Flask, render_template, url_for
-
+from flask import Flask, render_template, url_for, request
 
 app = Flask(__name__)
 
@@ -9,6 +8,8 @@ def hello():    # функция представления
     <a href={url_for('index')}>Site</a>
     <a href={url_for('start')}>стартовая страница</a>
     <a href={url_for('base')}>базовая страница</a>
+    <a href={url_for('form')}>форма для вопросов</a>
+    <a href={url_for('login')}>форма для регистрации</a>
 """
 
 @app.route('/start')
@@ -31,6 +32,27 @@ def day(num):
 @app.route('/photo-<num>')
 def photo(num):
     return render_template(f'photo-{num}.html') # отрисовывает шаблон
+
+@app.route('/form', methods=['GET', 'POST'])
+def form():
+    if request.method == 'POST':
+        for item in request.form:
+            print(item, request.form[item])
+    return render_template('form.html') # отрисовывает шаблон
+
+@app.route('/login', methods=['GET', 'POST'])
+def login():
+    if request.method == 'POST':
+        for user in users:
+            if request.form['login'] == user['username']:
+                if request.form['password'] == user['password']:
+                   return redirect(url_for('start'))
+    return render_template('login.html') # отрисовывает шаблон
+
+@app.route('/profile/<username>')
+def profile(num):
+    return render_template('start.html', username=username) # отрисовывает шаблон
+
 
 
 if __name__ == '__main__':

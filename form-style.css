@@ -1,0 +1,50 @@
+.feedback-form {
+  width: 630px;
+  padding-right: 390px;
+}
+
+.feedback-form input[type="text"],
+.feedback-form input[type="password"],
+.feedback-form select,
+.feedback-form textarea {
+  box-sizing: border-box;
+  width: 100%;
+  height: 54px;
+  padding: 9px 15px;
+  font: inherit;
+  color: inherit;
+  border: 2px solid #d5d5d5;
+}
+
+.feedback-form input[type="text"]:hover,
+.feedback-form select:hover,
+.feedback-form textarea:hover {
+  border-color: #bebebe;
+}
+
+.feedback-form input[type="text"]:focus,
+.feedback-form select:focus,
+.feedback-form textarea:focus {
+  border-color: #8d745a;
+}
+
+.feedback-form textarea {
+  display: block;
+  min-height: 120px;
+}
+
+.flash {
+  box-sizing: border-box;
+  width: 630px;
+  padding: 10px 390px 10px 10px;
+}
+
+.flash.success {
+  border: 2px solid #8d745a;
+  background: #47bb52;
+}
+
+.flash.error {
+  border: 2px solid #ff0000;
+  background: #ff7700;
+}

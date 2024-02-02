@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+
+{% block head %}
+    {{ super() }}
+    <link rel="stylesheet" href={{ url_for('static', filename='form-style.css') }}>
+{% endblock %}
+
+{% block content %}
+    <h2>Остались вопросы?</h2>
+    <p>Свяжитесь с нами и мы развеем оставшиеся у вас сомнения!</p>
+    <form class="feedback-form" action= "{{ url_for('form')}}" method="post">
+        <p>
+            <label for="fullname">Представьтесь, пожалуйста:</label>
+            <input type="text" name="fullname" id="fullname">
+        </p>
+        <p>
+            <label for="phone">Контактный телефон:</label>
+            <input type="text" name="phone" id="phone">
+        </p>
+        <p>
+            <label for="email">Электронная почта:</label>
+            <input type="text" name="email" id="email">
+        </p>
+        <p>
+            <label>
+                <input type="checkbox" name="subscription">
+                Я согласен получать спам и смс на телефон
+            </label>
+        </p>
+        <p>
+            <label for="topic">Тема обращения:</label>
+            <select name="topic" id="topic">
+                <option value="1">Условия доставки</option>
+                <option value="2">Возврат товара</option>
+                <option value="3">Жалоба в Роспотребнадзор</option>
+            </select>
+        </p>
+        <p>
+            <label for="message">Текст обращения:</label>
+            <textarea name="message" id="message"></textarea>
+        </p>
+        <input class="btn" type="submit" value="Отправить">
+    </form>
+{% endblock %}

@@ -8,6 +8,9 @@
 {% block content %}
     <h2>Регистрация</h2>
     <p>У зарегистрированных пользователей больше плюшек</p>
+    {% for cat, msg in get_flashed_messages(with_categories=True) %}
+        <div class="flash {{ cat }}">{{ msg }}</div>
+    {% endfor %}
     <form class="feedback-form" action= "{{ url_for('login')}}" method="post">
         <p>
             <label for="login">Введите свой логин:</label>

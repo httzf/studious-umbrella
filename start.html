@@ -3,7 +3,9 @@
 {% block header %}
   <h1 class="page-title">Сайт начинающего верстальщика </h1>
 {% endblock %}
-
+{% for cat, msg in get_flashed_messages(with_categories=True) %}
+    <div class="flash {{ cat }}">{{ msg }}</div>
+{% endfor %}
 {% block content %}
 <nav class="blog-navigation">
   <h2>Записи в блоге</h2>

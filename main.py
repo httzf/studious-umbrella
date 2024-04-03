@@ -12,12 +12,13 @@ app.secret_key = 'SECRET'
 @app.route('/') # endpoint, по умолчанию заходит под /
 def hello():    # функция представления
      return f"""
-    <a href={url_for('index')}>Site</a>
-    <a href={url_for('start')}>стартовая страница</a>
-    <a href={url_for('base')}>базовая страница</a>
-    <a href={url_for('form')}>форма для вопросов</a>
-    <a href={url_for('login')}>форма для регистрации</a>
-"""
+    <p>сайт начиающего верстальщика. Есть ссылки: </p>
+        <a href={url_for('index')}>Site</a>
+        <a href={url_for('start')}>стартовая страница</a>
+        <a href={url_for('base')}>базовая страница</a>
+        <a href={url_for('form')}>форма для вопросов</a>
+        <a href={url_for('login')}>форма для регистрации</a>
+    """
 
 @app.route('/start')
 def start():
@@ -44,14 +45,14 @@ def photo(num):
 def form():
     if request.method == 'POST':
         for item in request.form:
-            print(item, request.form[item])
+            print(request.form[item])
     return render_template('form.html') # отрисовывает шаблон
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
     if request.method == 'POST':
         if session.get('username'):
-            return render_template('start.html', username=session['username'])
+            return render_template('login.html')
         for user in users:
             if request.form['login'] == user['username']:
                 if request.form['password'] == user['password']:
@@ -60,18 +61,17 @@ def login():
                    return redirect(url_for('profile', username=user['username']))
                 else:
                     flash('Wrong password', 'error')
-                    break
-
-        else:
-            flash('Wrong login', 'error')
-    return render_template('login.html') # отрисовывает шаблон
+            else:
+                if session.get('username'):
+                    return redirect(url_for('profile', username=session['username']))
+            return render_template('login.html')
 
 @app.route('/profile/<username>')
 def profile(username):
     if username == session.get('username'):
-        return render_template('profile.html', username=username)
+        return render_template('login.html', username=username)
     flash('Доступ запрещен', 'error')
-
+    return redirect(url_for('login', username=session['username']))
 
 
 if __name__ == '__main__':

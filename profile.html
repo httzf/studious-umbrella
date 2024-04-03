@@ -1,26 +1,30 @@
 {% extends "base.html" %}
-{% block head %}
 
+{% block header %}
+      <p class="page-title">Профиль</p>
+       <nav class="blog-navigation">
+    <a href= {{ url_for('start') }}>На стартовую</a>
+      </nav>
+      {% endblock %}
+
+{% block head %}
     {{ super() }}
     <link rel="stylesheet" href={{ url_for('static', filename='form-style.css') }}>
 {% endblock %}
 
 {% block content %}
-    <h2>Регистрация</h2>
-    <p>У зарегистрированных пользователей больше плюшек</p>
+    <h2>Ваш профиль</h2>
     {% for cat, msg in get_flashed_messages(with_categories=True) %}
         <div class="flash {{ cat }}">{{ msg }}</div>
     {% endfor %}
-    <form class="feedback-form" action= "{{ url_for('login')}}" method="post">
+    <p>Ваши данные:</p>
+    <form class="feedback-form" action="" method="post">
         <p>
-            <label for="login">Введите свой логин:</label>
-            <input type="text" name="login" id="fullname">
+            <label for="login">Логин:</label>
+            <input type="text" name="login" id="login" placeholder="{{ username }}">
         </p>
-<!--        <p>-->
-<!--            <label for="password">Введите свой пароль:</label>-->
-<!--            <input type="password" name="password" id="phone">-->
-<!--        </p>-->
 
-        <input class="btn" type="submit" value="Отправить">
+
+        <input class="btn" type="submit" value="Пупупу">
     </form>
 {% endblock %}

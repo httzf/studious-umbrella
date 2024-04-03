@@ -1,4 +1,13 @@
 {% extends "base.html" %}
+
+{% block header %}
+      <p class="page-title">Регистрация</p>
+       <nav class="blog-navigation">
+    <a href= {{ url_for('hello') }}>На начальную</a>
+      </nav>
+      {% endblock %}
+
+
 {% block head %}
 
     {{ super() }}
@@ -17,9 +26,11 @@
             <input type="text" name="login" id="fullname">
         </p>
         <p>
-            <label for="password">Введите свой пароль:</label>
-            <input type="password" name="password" id="phone">
+            <label for="password">Пароль:</label>
+            <input type="password" name="password" id="password">
         </p>
+
+        <input class="btn" type="submit" value="Отправить">
 
         <input class="btn" type="submit" value="Отправить">
     </form>

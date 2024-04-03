@@ -12,12 +12,12 @@
       <div class="avatar-container">
           <img class="avatar" src ={{ url_for('static', filename="img/raccoon.svg") }} width="80" height="80" alt="Аватарка">
       </div>
-    {% block navigation %}
-      <h1 class="page-title">Сайт начинающего верстальщика</h1>
-      <nav class="blog-navigation">
-        <a href={{ url_for('start') }}>На главную</a>
+      {% block header %}
+      <p class="page-title">Блог</p>
+       <nav class="blog-navigation">
+    <a href= {{ url_for('start') }}>На главную</a>
       </nav>
-    {% endblock %}
+      {% endblock %}
     </header>
     <main>
       {% block content %}

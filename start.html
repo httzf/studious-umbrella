@@ -1,13 +1,16 @@
-{% extends "base.html" %}
+  {% extends "base.html" %}
 
-{% block header %}
-  <h1 class="page-title">Сайт начинающего верстальщика </h1>
-{% endblock %}
-{% for cat, msg in get_flashed_messages(with_categories=True) %}
-    <div class="flash {{ cat }}">{{ msg }}</div>
-{% endfor %}
-{% block content %}
-<nav class="blog-navigation">
+  {% block header %}
+  <h1 class="page-title">Сайт начинающего верстальщика</h1>
+   <nav class="blog-navigation">
+    <a href= {{ url_for('hello') }}>На начальную</a>
+      </nav>
+  {% endblock %}
+  {% for cat, msg in get_flashed_messages(with_categories=True) %}
+        <div class="flash {{ cat }}">{{ msg }}</div>
+  {% endfor %}
+  {% block content %}
+      <nav class="blog-navigation">
   <h2>Записи в блоге</h2>
   <ul>
     <li><a href= {{ url_for('day', num=1)}}>День первый. Как я забыл покормить кота</a></li>
@@ -25,6 +28,9 @@
     <li><a href= {{ url_for('day', num=13)}}>День тринадцатый. Нашёл статью</a></li>
     <li><a href= {{ url_for('day', num=14)}}>День четырнадцатый. Новый формат</a></li>
     <li><a href= {{ url_for('day', num=15)}}>День пятнадцатый. Галерея селфи</a></li>
+    <li><a href= {{ url_for('day', num=16}}>День шестнадцать. Мой личный конспект</a></li>
+    <li><a href= {{ url_for('day', num=17)}}>День семнадцатый. Дмитрий Валерьевич, у меня пустая голова</a></li>
+    <li><a href= {{ url_for('day', num=18)}}>День пятнадцатый. Галерея селфи</a></li>
   </ul>
 </nav>
 <section>

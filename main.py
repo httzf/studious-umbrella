@@ -20,9 +20,11 @@ def hello():    # функция представления
         <a href={url_for('login')}>форма для регистрации</a>
     """
 
+
 @app.route('/start')
 def start():
     return render_template('start.html') # отрисовывает шаблон
+
 
 @app.route('/base')
 def base():
@@ -33,13 +35,16 @@ def base():
 def index():
     return render_template('index.html') # отрисовывает шаблон
 
+
 @app.route('/day-<num>')
 def day(num):
     return render_template(f'day-{num}.html') # отрисовывает шаблон
 
+
 @app.route('/photo-<num>')
 def photo(num):
     return render_template(f'photo-{num}.html') # отрисовывает шаблон
+
 
 @app.route('/form', methods=['GET', 'POST'])
 def form():
@@ -47,6 +52,7 @@ def form():
         for item in request.form:
             print(request.form[item])
     return render_template('form.html') # отрисовывает шаблон
+
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
@@ -65,6 +71,7 @@ def login():
                 if session.get('username'):
                     return redirect(url_for('profile', username=session['username']))
             return render_template('login.html')
+
 
 @app.route('/profile/<username>')
 def profile(username):
